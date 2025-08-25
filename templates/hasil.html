@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Transaksi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            padding: 30px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        td {
+            padding: 8px;
+        }
+        td:first-child {
+            font-weight: bold;
+            width: 50%;
+        }
+        .voucher {
+            margin-top: 20px;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn-back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+        }
+        .btn-back a {
+            background: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-back a:hover {
+            background: #1f6391;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hasil Transaksi Belanja</h2>
+        <table>
+            <tr>
+                <td>Nama Pelanggan</td>
+                <td>{{ AzkaPelanggan }}</td>
+            </tr>
+            <tr>
+                <td>Nama Barang</td>
+                <td>{{ AzkaBarang }}</td>
+            </tr>
+            <tr>
+                <td>Harga Barang</td>
+                <td>Rp {{ "{:,.0f}".format(AzkaHarga) }}</td>
+            </tr>
+            <tr>
+                <td>Jumlah Barang</td>
+                <td>{{ AzkaJumlah }}</td>
+            </tr>
+            <tr>
+                <td>Total Harga Barang</td>
+                <td>Rp {{ "{:,.0f}".format(AzkaTotalBarang) }}</td>
+            </tr>
+            <tr>
+                <td>Diskon</td>
+                <td>Rp {{ "{:,.0f}".format(AzkaDiskon) }}</td>
+            </tr>
+            <tr>
+                <td>Biaya Admin</td>
+                <td>Rp {{ "{:,.0f}".format(AzkaAdmin) }}</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>{{ AzkaStatus }}</td>
+            </tr>
+            <tr>
+                <td>Metode Pembayaran</td>
+                <td>{{ AzkaMetode }}</td>
+            </tr>
+            <tr>
+                <td>Total Belanja</td>
+                <td><strong>Rp {{ "{:,.0f}".format(AzkaTotalBelanja) }}</strong></td>
+            </tr>
+        </table>
+
+        {% if AzkaVocher %}
+        <div class="voucher">
+            {{ AzkaVocher }}
+        </div>
+        {% endif %}
+
+        <div class="btn-back">
+            <a href="/">Kembali ke Form</a>
+        </div>
+    </div>
+</body>
+</html>

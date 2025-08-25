@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #dce3ec, #f4f7fa);
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    form {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 460px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    form:hover, .results:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    input[type="text"], input[type="number"],select {
+      width: 95%;
+      padding: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      text-align: center;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: scale(1.03);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/proses" method="post">
+            <h2>Form Belanja</h2>
+            <table>
+                <tr>
+                    <td>Nama Pelanggan</td>
+                    <td>: <input type="text" name="AzkaPelanggan" id="" required></td>
+                </tr>
+                <tr>
+                    <td>Nama Barang</td>
+                    <td>: <input type="text" name="AzkaBarang" id="" required></td>
+                </tr>
+                <tr>
+                    <td>Harga Barang</td>
+                    <td>: <input type="number" name="AzkaHarga" id="" required></td>
+                </tr>
+                <tr>
+                    <td>Jumlah Barang</td>
+                    <td>: <input type="number" name="AzkaJumlah" id="" required></td>
+                </tr>
+                <tr>
+                    <td>Status Keanggotaan</td>
+                    <td>
+                        :
+                        <select name="AzkaStatus" required>
+                            <option value="">--Pilih Status--</option>
+                            <option value="Non-Member">Non-Member</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Metode Pembayaran</td>
+                    <td>
+                        :
+                        <select name="AzkaMetode" id="" required>
+                            <option value="">--Pilih Metode Pembayaran--</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <Button type="submit">Hitung</Button>
+        </form>
+    </div> 
+</body>
+</html>

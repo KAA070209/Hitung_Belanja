@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login / Register</title>
+  <style>
+    body { font-family: sans-serif; background: #f2f2f2; padding: 50px; }
+    .container { background: white; padding: 30px; max-width: 400px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, button { width: 100%; margin-top: 10px; padding: 10px; font-size: 16px; }
+    .success { color: green; }
+    .danger { color: red; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login / Register</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <p class="{{ category }}">{{ message }}</p>
+      {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="/">
+      <label>Aksi:</label>
+      <select name="action" required>
+        <option value="login">Login</option>
+        <option value="register">Register</option>
+      </select>
+
+      <label>Username:</label>
+      <input type="text" name="username" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
